@@ -46,7 +46,10 @@ def is_sample(filePath, inputName, maxSampleSize, SampleIDs):
             return True
         # Ignore 'sample' in files unless 'sample' in Torrent Name
         for ident in SampleIDs:
-            if ident.lower() in filePath.lower() and not ident.lower() in inputName.lower(): 
+            if (
+                ident.lower() in filePath.lower()
+                and ident.lower() not in inputName.lower()
+            ):
                 return True
     # Return False if none of these were met.
     return False
